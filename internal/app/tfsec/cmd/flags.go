@@ -10,8 +10,8 @@ import (
 	"strings"
 
 	"github.com/khulnasoft-lab/defsec/pkg/scanners/options"
-	"github.com/google/uuid"
 	"github.com/khulnasoft/tfsec/internal/pkg/custom"
+	"github.com/google/uuid"
 
 	"github.com/khulnasoft-lab/defsec/pkg/scan"
 
@@ -355,7 +355,7 @@ func remoteConfigDownloaded() bool {
 		return false
 	}
 
-	if err := os.WriteFile(tempFile, configContent, 0600); err != nil {
+	if err := os.WriteFile(tempFile, configContent, os.ModePerm); err != nil {
 		return false
 	}
 	configFile = tempFile
@@ -381,7 +381,7 @@ func remoteCustomCheckDownloaded() bool {
 		return false
 	}
 
-	if err := os.WriteFile(tempFile, configContent, 0600); err != nil {
+	if err := os.WriteFile(tempFile, customCheckContent, os.ModePerm); err != nil {
 		return false
 	}
 	customCheckDir = customTempDir
