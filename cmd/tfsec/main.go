@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/aquasecurity/tfsec/internal/app/tfsec/cmd"
+	"github.com/khulnasoft/tfsec/internal/app/tfsec/cmd"
 )
 
 const transitionMsg = `
@@ -17,7 +17,7 @@ for the time being, although our engineering
 attention will be directed at Trivy going forward.
 
 You can read more here: 
-https://github.com/aquasecurity/tfsec/discussions/1994
+https://github.com/khulnasoft/tfsec/discussions/1994
 ======================================================
 `
 

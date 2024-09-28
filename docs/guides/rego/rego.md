@@ -59,7 +59,7 @@ If you are writing a policy which has no meaningful _source_ parameter/object, y
 
 ## Applying Rego Policies
 
-You can ask _tfsec_ to apply your custom Rego policies by using the `--rego-policy-dir` flag to specify the directory containing your policies. 
+You can ask _tfsec_ to apply your custom Rego policies by using the `--rego-policy-dir` flag to specify the directory containing your policies.
 
 Policies will be loaded recursively starting at this directory, and so can be organised using nested subdirectories if desired.
 

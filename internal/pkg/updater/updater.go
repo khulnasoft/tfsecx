@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"runtime"
 
-	"github.com/aquasecurity/tfsec/version"
+	"github.com/khulnasoft/tfsec/version"
 	semver "github.com/hashicorp/go-version"
 	"github.com/inconshreveable/go-update"
 )
@@ -36,7 +36,7 @@ func Update() (string, error) {
 }
 
 func getLatestVersion() (string, error) {
-	resp, err := http.Get("https://api.github.com/repos/aquasecurity/tfsec/releases/latest")
+	resp, err := http.Get("https://api.github.com/repos/khulnasoft/tfsec/releases/latest")
 	if err != nil {
 		return "", err
 	}
@@ -95,5 +95,5 @@ func resolveDownloadUrl(latest string) string {
 		suffix = ".exe"
 	}
 
-	return fmt.Sprintf("https://github.com/aquasecurity/tfsec/releases/download/%s/tfsec-%s-%s%s", latest, runtime.GOOS, runtime.GOARCH, suffix)
+	return fmt.Sprintf("https://github.com/khulnasoft/tfsec/releases/download/%s/tfsec-%s-%s%s", latest, runtime.GOOS, runtime.GOARCH, suffix)
 }

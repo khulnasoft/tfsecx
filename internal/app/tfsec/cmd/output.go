@@ -12,8 +12,8 @@ import (
 	"github.com/aquasecurity/defsec/pkg/providers"
 	"github.com/aquasecurity/defsec/pkg/scan"
 	scanner "github.com/aquasecurity/defsec/pkg/scanners/terraform"
-	"github.com/aquasecurity/tfsec/internal/pkg/formatter"
-	"github.com/aquasecurity/tfsec/version"
+	"github.com/khulnasoft/tfsec/internal/pkg/formatter"
+	"github.com/khulnasoft/tfsec/version"
 	"github.com/liamg/tml"
 )
 
@@ -54,7 +54,7 @@ func gatherLinks(result scan.Result) []string {
 	} else {
 		docsLink = []string{
 			fmt.Sprintf(
-				"https://aquasecurity.github.io/tfsec/%s/checks/%s/%s/%s/",
+				"https://khulnasoft.github.io/tfsec/%s/checks/%s/%s/%s/",
 				v,
 				result.Rule().Provider,
 				strings.ToLower(result.Rule().Service),

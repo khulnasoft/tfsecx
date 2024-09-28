@@ -6,9 +6,9 @@ import (
 	"path/filepath"
 	"runtime"
 
-	"github.com/aquasecurity/tfsec/internal/pkg/ignores"
-	"github.com/aquasecurity/tfsec/internal/pkg/updater"
-	"github.com/aquasecurity/tfsec/version"
+	"github.com/khulnasoft/tfsec/internal/pkg/ignores"
+	"github.com/khulnasoft/tfsec/internal/pkg/updater"
+	"github.com/khulnasoft/tfsec/version"
 	"github.com/liamg/tml"
 	"github.com/spf13/cobra"
 )

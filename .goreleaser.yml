@@ -3,7 +3,7 @@ builds:
     main: ./cmd/tfsec
     binary: tfsec
     ldflags:
-      - "-X github.com/aquasecurity/tfsec/version.Version={{.Tag}} -s -w -extldflags '-fno-PIC -static'"
+      - "-X github.com/khulnasoft/tfsec/version.Version={{.Tag}} -s -w -extldflags '-fno-PIC -static'"
     env:
       - CGO_ENABLED=0
     goos:
@@ -17,7 +17,7 @@ builds:
     main: ./cmd/tfsec-checkgen
     binary: tfsec-checkgen
     ldflags:
-      - "-X github.com/aquasecurity/tfsec/version.Version={{.Tag}} -s -w -extldflags '-fno-PIC -static'"
+      - "-X github.com/khulnasoft/tfsec/version.Version={{.Tag}} -s -w -extldflags '-fno-PIC -static'"
     env:
       - CGO_ENABLED=0
     goos:
@@ -51,11 +51,11 @@ archives:
 release:
   prerelease: auto
   github:
-    owner: aquasecurity
+    owner: khulnasoft
     name: tfsec
 
 dockers:
-  - image_templates: ["aquasec/{{ .ProjectName }}:{{ .Tag }}-amd64"]
+  - image_templates: ["khulnasoft/{{ .ProjectName }}:{{ .Tag }}-amd64"]
     ids:
       - tfsec
     dockerfile: Dockerfile
@@ -64,7 +64,7 @@ dockers:
       - --build-arg
       - --no-cache
       - --platform=linux/amd64
-  - image_templates: ["aquasec/{{ .ProjectName }}:{{ .Tag }}-arm64v8"]
+  - image_templates: ["khulnasoft/{{ .ProjectName }}:{{ .Tag }}-arm64v8"]
     ids:
       - tfsec
     goarch: arm64
@@ -72,14 +72,14 @@ dockers:
     use: buildx
     build_flag_templates:
       - --platform=linux/arm64/v8
-  - image_templates: ["aquasec/{{ .ProjectName }}-alpine:{{ .Tag }}-amd64"]
+  - image_templates: ["khulnasoft/{{ .ProjectName }}-alpine:{{ .Tag }}-amd64"]
     ids:
       - tfsec
     dockerfile: Dockerfile
     use: buildx
     build_flag_templates:
       - --platform=linux/amd64
-  - image_templates: ["aquasec/{{ .ProjectName }}-alpine:{{ .Tag }}-arm64v8"]
+  - image_templates: ["khulnasoft/{{ .ProjectName }}-alpine:{{ .Tag }}-arm64v8"]
     ids:
       - tfsec
     goarch: arm64
@@ -87,28 +87,29 @@ dockers:
     use: buildx
     build_flag_templates:
       - --platform=linux/arm64/v8
-  - image_templates: ["aquasec/{{ .ProjectName }}-scratch:{{ .Tag }}-amd64"]
+  - image_templates: ["khulnasoft/{{ .ProjectName }}-scratch:{{ .Tag }}-amd64"]
     ids:
       - tfsec
     dockerfile: Dockerfile.scratch
     use: buildx
     build_flag_templates:
       - --platform=linux/amd64
-  - image_templates: ["aquasec/{{ .ProjectName }}-scratch:{{ .Tag }}-arm64v8"]
+  - image_templates:
+      ["khulnasoft/{{ .ProjectName }}-scratch:{{ .Tag }}-arm64v8"]
     ids:
       - tfsec
     dockerfile: Dockerfile.scratch
     use: buildx
     build_flag_templates:
       - --platform=linux/arm64/v8
-  - image_templates: ["aquasec/{{ .ProjectName }}-ci:{{ .Tag }}-amd64"]
+  - image_templates: ["khulnasoft/{{ .ProjectName }}-ci:{{ .Tag }}-amd64"]
     ids:
       - tfsec
     dockerfile: Dockerfile.ci
     use: buildx
     build_flag_templates:
       - --platform=linux/amd64
-  - image_templates: ["aquasec/{{ .ProjectName }}-ci:{{ .Tag }}-arm64v8"]
+  - image_templates: ["khulnasoft/{{ .ProjectName }}-ci:{{ .Tag }}-arm64v8"]
     ids:
       - tfsec
     dockerfile: Dockerfile.ci
@@ -117,58 +118,58 @@ dockers:
       - --platform=linux/arm64/v8
 
 docker_manifests:
-  - name_template: "aquasec/{{ .ProjectName }}:{{ .Tag }}"
+  - name_template: "khulnasoft/{{ .ProjectName }}:{{ .Tag }}"
     image_templates:
-      - aquasec/{{ .ProjectName }}:{{ .Tag }}-arm64v8
-      - aquasec/{{ .ProjectName }}:{{ .Tag }}-amd64
-  - name_template: "aquasec/{{ .ProjectName }}:latest"
+      - khulnasoft/{{ .ProjectName }}:{{ .Tag }}-arm64v8
+      - khulnasoft/{{ .ProjectName }}:{{ .Tag }}-amd64
+  - name_template: "khulnasoft/{{ .ProjectName }}:latest"
     image_templates:
-      - aquasec/{{ .ProjectName }}:{{ .Tag }}-arm64v8
-      - aquasec/{{ .ProjectName }}:{{ .Tag }}-amd64
-  - name_template: "aquasec/{{ .ProjectName }}:v{{ .Major }}.{{ .Minor }}"
+      - khulnasoft/{{ .ProjectName }}:{{ .Tag }}-arm64v8
+      - khulnasoft/{{ .ProjectName }}:{{ .Tag }}-amd64
+  - name_template: "khulnasoft/{{ .ProjectName }}:v{{ .Major }}.{{ .Minor }}"
     skip_push: auto
     image_templates:
-      - aquasec/{{ .ProjectName }}:{{ .Tag }}-arm64v8
-      - aquasec/{{ .ProjectName }}:{{ .Tag }}-amd64
-  - name_template: "aquasec/{{ .ProjectName }}-alpine:{{ .Tag }}"
+      - khulnasoft/{{ .ProjectName }}:{{ .Tag }}-arm64v8
+      - khulnasoft/{{ .ProjectName }}:{{ .Tag }}-amd64
+  - name_template: "khulnasoft/{{ .ProjectName }}-alpine:{{ .Tag }}"
     image_templates:
-      - aquasec/{{ .ProjectName }}-alpine:{{ .Tag }}-arm64v8
-      - aquasec/{{ .ProjectName }}-alpine:{{ .Tag }}-amd64
-  - name_template: "aquasec/{{ .ProjectName }}-alpine:latest"
+      - khulnasoft/{{ .ProjectName }}-alpine:{{ .Tag }}-arm64v8
+      - khulnasoft/{{ .ProjectName }}-alpine:{{ .Tag }}-amd64
+  - name_template: "khulnasoft/{{ .ProjectName }}-alpine:latest"
     image_templates:
-      - aquasec/{{ .ProjectName }}-alpine:{{ .Tag }}-arm64v8
-      - aquasec/{{ .ProjectName }}-alpine:{{ .Tag }}-amd64
-  - name_template: "aquasec/{{ .ProjectName }}-alpine:v{{ .Major }}.{{ .Minor }}"
+      - khulnasoft/{{ .ProjectName }}-alpine:{{ .Tag }}-arm64v8
+      - khulnasoft/{{ .ProjectName }}-alpine:{{ .Tag }}-amd64
+  - name_template: "khulnasoft/{{ .ProjectName }}-alpine:v{{ .Major }}.{{ .Minor }}"
     skip_push: auto
     image_templates:
-      - aquasec/{{ .ProjectName }}-alpine:{{ .Tag }}-arm64v8
-      - aquasec/{{ .ProjectName }}-alpine:{{ .Tag }}-amd64
-  - name_template: "aquasec/{{ .ProjectName }}-scratch:{{ .Tag }}"
+      - khulnasoft/{{ .ProjectName }}-alpine:{{ .Tag }}-arm64v8
+      - khulnasoft/{{ .ProjectName }}-alpine:{{ .Tag }}-amd64
+  - name_template: "khulnasoft/{{ .ProjectName }}-scratch:{{ .Tag }}"
     image_templates:
-      - aquasec/{{ .ProjectName }}-scratch:{{ .Tag }}-arm64v8
-      - aquasec/{{ .ProjectName }}-scratch:{{ .Tag }}-amd64
-  - name_template: "aquasec/{{ .ProjectName }}-scratch:latest"
+      - khulnasoft/{{ .ProjectName }}-scratch:{{ .Tag }}-arm64v8
+      - khulnasoft/{{ .ProjectName }}-scratch:{{ .Tag }}-amd64
+  - name_template: "khulnasoft/{{ .ProjectName }}-scratch:latest"
     image_templates:
-      - aquasec/{{ .ProjectName }}-scratch:{{ .Tag }}-arm64v8
-      - aquasec/{{ .ProjectName }}-scratch:{{ .Tag }}-amd64
-  - name_template: "aquasec/{{ .ProjectName }}-scratch:v{{ .Major }}.{{ .Minor }}"
+      - khulnasoft/{{ .ProjectName }}-scratch:{{ .Tag }}-arm64v8
+      - khulnasoft/{{ .ProjectName }}-scratch:{{ .Tag }}-amd64
+  - name_template: "khulnasoft/{{ .ProjectName }}-scratch:v{{ .Major }}.{{ .Minor }}"
     skip_push: auto
     image_templates:
-      - aquasec/{{ .ProjectName }}-scratch:{{ .Tag }}-arm64v8
-      - aquasec/{{ .ProjectName }}-scratch:{{ .Tag }}-amd64
-  - name_template: "aquasec/{{ .ProjectName }}-ci:{{ .Tag }}"
+      - khulnasoft/{{ .ProjectName }}-scratch:{{ .Tag }}-arm64v8
+      - khulnasoft/{{ .ProjectName }}-scratch:{{ .Tag }}-amd64
+  - name_template: "khulnasoft/{{ .ProjectName }}-ci:{{ .Tag }}"
     image_templates:
-      - aquasec/{{ .ProjectName }}-ci:{{ .Tag }}-arm64v8
-      - aquasec/{{ .ProjectName }}-ci:{{ .Tag }}-amd64
-  - name_template: "aquasec/{{ .ProjectName }}-ci:latest"
+      - khulnasoft/{{ .ProjectName }}-ci:{{ .Tag }}-arm64v8
+      - khulnasoft/{{ .ProjectName }}-ci:{{ .Tag }}-amd64
+  - name_template: "khulnasoft/{{ .ProjectName }}-ci:latest"
     image_templates:
-      - aquasec/{{ .ProjectName }}-ci:{{ .Tag }}-arm64v8
-      - aquasec/{{ .ProjectName }}-ci:{{ .Tag }}-amd64
-  - name_template: "aquasec/{{ .ProjectName }}-ci:v{{ .Major }}.{{ .Minor }}"
+      - khulnasoft/{{ .ProjectName }}-ci:{{ .Tag }}-arm64v8
+      - khulnasoft/{{ .ProjectName }}-ci:{{ .Tag }}-amd64
+  - name_template: "khulnasoft/{{ .ProjectName }}-ci:v{{ .Major }}.{{ .Minor }}"
     skip_push: auto
     image_templates:
-      - aquasec/{{ .ProjectName }}-ci:{{ .Tag }}-arm64v8
-      - aquasec/{{ .ProjectName }}-ci:{{ .Tag }}-amd64
+      - khulnasoft/{{ .ProjectName }}-ci:{{ .Tag }}-arm64v8
+      - khulnasoft/{{ .ProjectName }}-ci:{{ .Tag }}-amd64
 
 announce:
   slack:
@@ -179,4 +180,4 @@ announce:
 
   twitter:
     enabled: false
-    message_template: "🎉 tfsec {{.Tag}} is available now!! See what's new here - https://github.com/aquasecurity/tfsec/releases/tag/{{.Tag}}"
+    message_template: "🎉 tfsec {{.Tag}} is available now!! See what's new here - https://github.com/khulnasoft/tfsec/releases/tag/{{.Tag}}"

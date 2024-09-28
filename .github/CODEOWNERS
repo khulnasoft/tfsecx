@@ -1,3 +1,5 @@
 # These owners will be the default owners and reviewers for everything in
-# the repo. 
-*       @liamg @owenrumney
+
+# the repo.
+
+-       @nxpkg @khulnasoft-bot

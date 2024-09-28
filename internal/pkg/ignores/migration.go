@@ -8,7 +8,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/aquasecurity/tfsec/internal/pkg/legacy"
+	"github.com/khulnasoft/tfsec/internal/pkg/legacy"
 )
 
 type migrationStatistic struct {

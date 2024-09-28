@@ -10,7 +10,7 @@ import (
 	"strings"
 
 	"github.com/aquasecurity/defsec/pkg/scanners/options"
-	"github.com/aquasecurity/tfsec/internal/pkg/custom"
+	"github.com/khulnasoft/tfsec/internal/pkg/custom"
 	"github.com/google/uuid"
 
 	"github.com/aquasecurity/defsec/pkg/scan"
@@ -23,8 +23,8 @@ import (
 	"github.com/aquasecurity/defsec/pkg/severity"
 
 	"github.com/aquasecurity/defsec/pkg/state"
-	"github.com/aquasecurity/tfsec/internal/pkg/config"
-	"github.com/aquasecurity/tfsec/internal/pkg/legacy"
+	"github.com/khulnasoft/tfsec/internal/pkg/config"
+	"github.com/khulnasoft/tfsec/internal/pkg/legacy"
 )
 
 var showVersion bool

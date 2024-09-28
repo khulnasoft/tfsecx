@@ -12,14 +12,14 @@ function clone_image() {
         exit 1
     fi
 
-    docker tag aquasec/${IMAGE} ${OWNER}/${IMAGE}
+    docker tag khulnasoft/${IMAGE} ${OWNER}/${IMAGE}
     echo "pushing ${OWNER}/${IMAGE}"
     docker push ${OWNER}/${IMAGE}
 }
 
 OWNER=$1
 
-RESULTS=$(docker image list --format {{.Repository}}:{{.Tag}} | grep aquasec/tfsec | awk -F/ '{print $2}')
+RESULTS=$(docker image list --format {{.Repository}}:{{.Tag}} | grep khulnasoft/tfsec | awk -F/ '{print $2}')
 
 for RESULT in $RESULTS; do
     clone_image $RESULT $OWNER

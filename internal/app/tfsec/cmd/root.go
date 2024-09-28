@@ -12,8 +12,8 @@ import (
 	"github.com/aquasecurity/defsec/pkg/extrafs"
 	scanner "github.com/aquasecurity/defsec/pkg/scanners/terraform"
 	"github.com/aquasecurity/defsec/pkg/scanners/terraform/executor"
-	"github.com/aquasecurity/tfsec/internal/pkg/config"
-	"github.com/aquasecurity/tfsec/version"
+	"github.com/khulnasoft/tfsec/internal/pkg/config"
+	"github.com/khulnasoft/tfsec/version"
 	"github.com/spf13/cobra"
 )
 

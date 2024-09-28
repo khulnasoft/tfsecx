@@ -13,7 +13,7 @@ import (
 	"github.com/aquasecurity/defsec/pkg/scanners/terraform"
 
 	survey "github.com/AlecAivazis/survey/v2"
-	"github.com/aquasecurity/tfsec/internal/pkg/custom"
+	"github.com/khulnasoft/tfsec/internal/pkg/custom"
 	"github.com/spf13/cobra"
 )
 

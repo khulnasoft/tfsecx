@@ -3,7 +3,7 @@ builds:
     main: ./cmd/tfsec
     binary: tfsec
     ldflags:
-      - "-X github.com/aquasecurity/tfsec/version.Version={{.Tag}} -s -w -extldflags '-fno-PIC -static'"
+      - "-X github.com/khulnasoft/tfsec/version.Version={{.Tag}} -s -w -extldflags '-fno-PIC -static'"
     env:
       - CGO_ENABLED=0
     goos:
@@ -17,7 +17,7 @@ builds:
     main: ./cmd/tfsec-checkgen
     binary: tfsec-checkgen
     ldflags:
-      - "-X github.com/aquasecurity/tfsec/version.Version={{.Tag}} -s -w -extldflags '-fno-PIC -static'"
+      - "-X github.com/khulnasoft/tfsec/version.Version={{.Tag}} -s -w -extldflags '-fno-PIC -static'"
     env:
       - CGO_ENABLED=0
     goos:
@@ -43,8 +43,7 @@ signs:
     signature: "${artifact}.D66B222A3EA4C25D5D1A097FC34ACEFB46EC39CE.sig"
 
 dockers:
-  - image_templates:
-      ["ghcr.io/aquasecurity/{{ .ProjectName }}:{{ .Tag }}-amd64"]
+  - image_templates: ["ghcr.io/khulnasoft/{{ .ProjectName }}:{{ .Tag }}-amd64"]
     ids:
       - tfsec
     dockerfile: Dockerfile
@@ -52,7 +51,7 @@ dockers:
     build_flag_templates:
       - --platform=linux/amd64
   - image_templates:
-      ["ghcr.io/aquasecurity/{{ .ProjectName }}:{{ .Tag }}-arm64v8"]
+      ["ghcr.io/khulnasoft/{{ .ProjectName }}:{{ .Tag }}-arm64v8"]
     ids:
       - tfsec
     goarch: arm64
@@ -61,7 +60,7 @@ dockers:
     build_flag_templates:
       - --platform=linux/arm64/v8
   - image_templates:
-      ["ghcr.io/aquasecurity/{{ .ProjectName }}-alpine:{{ .Tag }}-amd64"]
+      ["ghcr.io/khulnasoft/{{ .ProjectName }}-alpine:{{ .Tag }}-amd64"]
     ids:
       - tfsec
     dockerfile: Dockerfile
@@ -69,7 +68,7 @@ dockers:
     build_flag_templates:
       - --platform=linux/amd64
   - image_templates:
-      ["ghcr.io/aquasecurity/{{ .ProjectName }}-alpine:{{ .Tag }}-arm64v8"]
+      ["ghcr.io/khulnasoft/{{ .ProjectName }}-alpine:{{ .Tag }}-arm64v8"]
     ids:
       - tfsec
     goarch: arm64
@@ -78,7 +77,7 @@ dockers:
     build_flag_templates:
       - --platform=linux/arm64/v8
   - image_templates:
-      ["ghcr.io/aquasecurity/{{ .ProjectName }}-scratch:{{ .Tag }}-amd64"]
+      ["ghcr.io/khulnasoft/{{ .ProjectName }}-scratch:{{ .Tag }}-amd64"]
     ids:
       - tfsec
     dockerfile: Dockerfile.scratch
@@ -86,7 +85,7 @@ dockers:
     build_flag_templates:
       - --platform=linux/amd64
   - image_templates:
-      ["ghcr.io/aquasecurity/{{ .ProjectName }}-scratch:{{ .Tag }}-arm64v8"]
+      ["ghcr.io/khulnasoft/{{ .ProjectName }}-scratch:{{ .Tag }}-arm64v8"]
     ids:
       - tfsec
     dockerfile: Dockerfile.scratch
@@ -94,7 +93,7 @@ dockers:
     build_flag_templates:
       - --platform=linux/arm64/v8
   - image_templates:
-      ["ghcr.io/aquasecurity/{{ .ProjectName }}-ci:{{ .Tag }}-amd64"]
+      ["ghcr.io/khulnasoft/{{ .ProjectName }}-ci:{{ .Tag }}-amd64"]
     ids:
       - tfsec
     dockerfile: Dockerfile.ci
@@ -102,7 +101,7 @@ dockers:
     build_flag_templates:
       - --platform=linux/amd64
   - image_templates:
-      ["ghcr.io/aquasecurity/{{ .ProjectName }}-ci:{{ .Tag }}-arm64v8"]
+      ["ghcr.io/khulnasoft/{{ .ProjectName }}-ci:{{ .Tag }}-arm64v8"]
     ids:
       - tfsec
     dockerfile: Dockerfile.ci
@@ -111,55 +110,55 @@ dockers:
       - --platform=linux/arm64/v8
 
 docker_manifests:
-  - name_template: "ghcr.io/aquasecurity/{{ .ProjectName }}:{{ .Tag }}"
+  - name_template: "ghcr.io/khulnasoft/{{ .ProjectName }}:{{ .Tag }}"
     image_templates:
-      - ghcr.io/aquasecurity/{{ .ProjectName }}:{{ .Tag }}-arm64v8
-      - ghcr.io/aquasecurity/{{ .ProjectName }}:{{ .Tag }}-amd64
-  - name_template: "ghcr.io/aquasecurity/{{ .ProjectName }}:latest"
+      - ghcr.io/khulnasoft/{{ .ProjectName }}:{{ .Tag }}-arm64v8
+      - ghcr.io/khulnasoft/{{ .ProjectName }}:{{ .Tag }}-amd64
+  - name_template: "ghcr.io/khulnasoft/{{ .ProjectName }}:latest"
     image_templates:
-      - ghcr.io/aquasecurity/{{ .ProjectName }}:{{ .Tag }}-arm64v8
-      - ghcr.io/aquasecurity/{{ .ProjectName }}:{{ .Tag }}-amd64
-  - name_template: "ghcr.io/aquasecurity/{{ .ProjectName }}:v{{ .Major }}.{{ .Minor }}"
+      - ghcr.io/khulnasoft/{{ .ProjectName }}:{{ .Tag }}-arm64v8
+      - ghcr.io/khulnasoft/{{ .ProjectName }}:{{ .Tag }}-amd64
+  - name_template: "ghcr.io/khulnasoft/{{ .ProjectName }}:v{{ .Major }}.{{ .Minor }}"
     skip_push: auto
     image_templates:
-      - ghcr.io/aquasecurity/{{ .ProjectName }}:{{ .Tag }}-arm64v8
-      - ghcr.io/aquasecurity/{{ .ProjectName }}:{{ .Tag }}-amd64
-  - name_template: "ghcr.io/aquasecurity/{{ .ProjectName }}-alpine:{{ .Tag }}"
+      - ghcr.io/khulnasoft/{{ .ProjectName }}:{{ .Tag }}-arm64v8
+      - ghcr.io/khulnasoft/{{ .ProjectName }}:{{ .Tag }}-amd64
+  - name_template: "ghcr.io/khulnasoft/{{ .ProjectName }}-alpine:{{ .Tag }}"
     image_templates:
-      - ghcr.io/aquasecurity/{{ .ProjectName }}-alpine:{{ .Tag }}-arm64v8
-      - ghcr.io/aquasecurity/{{ .ProjectName }}-alpine:{{ .Tag }}-amd64
-  - name_template: "ghcr.io/aquasecurity/{{ .ProjectName }}-alpine:latest"
+      - ghcr.io/khulnasoft/{{ .ProjectName }}-alpine:{{ .Tag }}-arm64v8
+      - ghcr.io/khulnasoft/{{ .ProjectName }}-alpine:{{ .Tag }}-amd64
+  - name_template: "ghcr.io/khulnasoft/{{ .ProjectName }}-alpine:latest"
     image_templates:
-      - ghcr.io/aquasecurity/{{ .ProjectName }}-alpine:{{ .Tag }}-arm64v8
-      - ghcr.io/aquasecurity/{{ .ProjectName }}-alpine:{{ .Tag }}-amd64
-  - name_template: "ghcr.io/aquasecurity/{{ .ProjectName }}-alpine:v{{ .Major }}.{{ .Minor }}"
+      - ghcr.io/khulnasoft/{{ .ProjectName }}-alpine:{{ .Tag }}-arm64v8
+      - ghcr.io/khulnasoft/{{ .ProjectName }}-alpine:{{ .Tag }}-amd64
+  - name_template: "ghcr.io/khulnasoft/{{ .ProjectName }}-alpine:v{{ .Major }}.{{ .Minor }}"
     skip_push: auto
     image_templates:
-      - ghcr.io/aquasecurity/{{ .ProjectName }}-alpine:{{ .Tag }}-arm64v8
-      - ghcr.io/aquasecurity/{{ .ProjectName }}-alpine:{{ .Tag }}-amd64
-  - name_template: "ghcr.io/aquasecurity/{{ .ProjectName }}-scratch:{{ .Tag }}"
+      - ghcr.io/khulnasoft/{{ .ProjectName }}-alpine:{{ .Tag }}-arm64v8
+      - ghcr.io/khulnasoft/{{ .ProjectName }}-alpine:{{ .Tag }}-amd64
+  - name_template: "ghcr.io/khulnasoft/{{ .ProjectName }}-scratch:{{ .Tag }}"
     image_templates:
-      - ghcr.io/aquasecurity/{{ .ProjectName }}-scratch:{{ .Tag }}-arm64v8
-      - ghcr.io/aquasecurity/{{ .ProjectName }}-scratch:{{ .Tag }}-amd64
-  - name_template: "ghcr.io/aquasecurity/{{ .ProjectName }}-scratch:latest"
+      - ghcr.io/khulnasoft/{{ .ProjectName }}-scratch:{{ .Tag }}-arm64v8
+      - ghcr.io/khulnasoft/{{ .ProjectName }}-scratch:{{ .Tag }}-amd64
+  - name_template: "ghcr.io/khulnasoft/{{ .ProjectName }}-scratch:latest"
     image_templates:
-      - ghcr.io/aquasecurity/{{ .ProjectName }}-scratch:{{ .Tag }}-arm64v8
-      - ghcr.io/aquasecurity/{{ .ProjectName }}-scratch:{{ .Tag }}-amd64
-  - name_template: "ghcr.io/aquasecurity/{{ .ProjectName }}-scratch:v{{ .Major }}.{{ .Minor }}"
+      - ghcr.io/khulnasoft/{{ .ProjectName }}-scratch:{{ .Tag }}-arm64v8
+      - ghcr.io/khulnasoft/{{ .ProjectName }}-scratch:{{ .Tag }}-amd64
+  - name_template: "ghcr.io/khulnasoft/{{ .ProjectName }}-scratch:v{{ .Major }}.{{ .Minor }}"
     skip_push: auto
     image_templates:
-      - ghcr.io/aquasecurity/{{ .ProjectName }}-scratch:{{ .Tag }}-arm64v8
-      - ghcr.io/aquasecurity/{{ .ProjectName }}-scratch:{{ .Tag }}-amd64
-  - name_template: "ghcr.io/aquasecurity/{{ .ProjectName }}-ci:{{ .Tag }}"
+      - ghcr.io/khulnasoft/{{ .ProjectName }}-scratch:{{ .Tag }}-arm64v8
+      - ghcr.io/khulnasoft/{{ .ProjectName }}-scratch:{{ .Tag }}-amd64
+  - name_template: "ghcr.io/khulnasoft/{{ .ProjectName }}-ci:{{ .Tag }}"
     image_templates:
-      - ghcr.io/aquasecurity/{{ .ProjectName }}-ci:{{ .Tag }}-arm64v8
-      - ghcr.io/aquasecurity/{{ .ProjectName }}-ci:{{ .Tag }}-amd64
-  - name_template: "ghcr.io/aquasecurity/{{ .ProjectName }}-ci:latest"
+      - ghcr.io/khulnasoft/{{ .ProjectName }}-ci:{{ .Tag }}-arm64v8
+      - ghcr.io/khulnasoft/{{ .ProjectName }}-ci:{{ .Tag }}-amd64
+  - name_template: "ghcr.io/khulnasoft/{{ .ProjectName }}-ci:latest"
     image_templates:
-      - ghcr.io/aquasecurity/{{ .ProjectName }}-ci:{{ .Tag }}-arm64v8
-      - ghcr.io/aquasecurity/{{ .ProjectName }}-ci:{{ .Tag }}-amd64
-  - name_template: "ghcr.io/aquasecurity/{{ .ProjectName }}-ci:v{{ .Major }}.{{ .Minor }}"
+      - ghcr.io/khulnasoft/{{ .ProjectName }}-ci:{{ .Tag }}-arm64v8
+      - ghcr.io/khulnasoft/{{ .ProjectName }}-ci:{{ .Tag }}-amd64
+  - name_template: "ghcr.io/khulnasoft/{{ .ProjectName }}-ci:v{{ .Major }}.{{ .Minor }}"
     skip_push: auto
     image_templates:
-      - ghcr.io/aquasecurity/{{ .ProjectName }}-ci:{{ .Tag }}-arm64v8
-      - ghcr.io/aquasecurity/{{ .ProjectName }}-ci:{{ .Tag }}-amd64
+      - ghcr.io/khulnasoft/{{ .ProjectName }}-ci:{{ .Tag }}-arm64v8
+      - ghcr.io/khulnasoft/{{ .ProjectName }}-ci:{{ .Tag }}-amd64

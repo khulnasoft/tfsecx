@@ -1,4 +1,4 @@
-module github.com/aquasecurity/tfsec
+module github.com/khulnasoft/tfsec
 
 go 1.19
 
@@ -128,3 +128,5 @@ require (
 	github.com/owenrumney/go-sarif/v2 v2.1.2
 	github.com/rivo/uniseg v0.2.0 // indirect
 )
+
+replace github.com/aquasecurity/defsec => github.com/aquasecurity/defsec v0.84.1

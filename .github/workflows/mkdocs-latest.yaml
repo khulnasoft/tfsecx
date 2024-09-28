@@ -30,7 +30,7 @@ jobs:
       - name: Configure the git user
         run: |
           git config user.name "owenrumney"
-          git config user.email "owen.rumney@aquasec.com"
+          git config user.email "owen.rumney@khulnasoft.com"
       - name: Deploy the latest documents from new tag push
         if: ${{ github.event.inputs.version == '' }}
         run: |

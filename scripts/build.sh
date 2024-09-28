@@ -5,7 +5,7 @@ CHECK_GEN_BINARY=tfsec-checkgen
 TAG=${TRAVIS_TAG:-development}
 GO111MODULE=on
 export CGO_ENABLED=0
-args=(-ldflags "-X github.com/aquasecurity/tfsec/version.Version=${TAG} -s -w -extldflags '-fno-PIC -static'")
+args=(-ldflags "-X github.com/khulnasoft/tfsec/version.Version=${TAG} -s -w -extldflags '-fno-PIC -static'")
 
 mkdir -p bin/darwin
 GOOS=darwin GOARCH=amd64 go build -o bin/darwin/${BINARY}-darwin-amd64 "${args[@]}" ./cmd/tfsec/

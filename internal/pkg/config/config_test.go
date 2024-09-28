@@ -5,7 +5,7 @@ import (
 	"os"
 	"testing"
 
-	"github.com/aquasecurity/tfsec/internal/pkg/config"
+	"github.com/khulnasoft/tfsec/internal/pkg/config"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )

@@ -6,7 +6,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-// see https://github.com/aquasecurity/tfsec/issues/1661
+// see https://github.com/khulnasoft/tfsec/issues/1661
 func Test_Issue_1661(t *testing.T) {
 	out, err, _ := runWithArgs("./testdata/issues/1661")
 	results := parseLovely(t, out)

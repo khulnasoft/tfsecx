@@ -1,7 +1,7 @@
-IMAGE := tfsec/tfsec
+IMAGE := khulnasoft/tfsec
 SHELL := /bin/bash
 
-MKDOCS_IMAGE := aquasec/mkdocs-material:tracee
+MKDOCS_IMAGE := khulnasoft/mkdocs-material:tracee
 MKDOCS_PORT := 8000
 
 .PHONY: image
@@ -53,7 +53,7 @@ fix-typos:
 
 .PHONY: clone-image-github
 clone-image-github:
-	./scripts/clone-images.sh ghcr.io/aquasecurity
+	./scripts/clone-images.sh ghcr.io/khulnasoft
 
 .PHONY: pr-ready
 pr-ready: quality typos

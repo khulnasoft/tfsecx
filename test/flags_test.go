@@ -8,7 +8,7 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/aquasecurity/tfsec/version"
+	"github.com/khulnasoft/tfsec/version"
 	"github.com/stretchr/testify/require"
 
 	"github.com/stretchr/testify/assert"
@@ -472,7 +472,7 @@ func Test_Flag_RegoOnly(t *testing.T) {
 }
 
 func Test_Flag_ConfigFileUrl(t *testing.T) {
-	configFileUrl := "https://raw.githubusercontent.com/aquasecurity/tfsec/master/_examples/with_config_overrides/.tfsec/config.yml"
+	configFileUrl := "https://raw.githubusercontent.com/khulnasoft/tfsec/master/_examples/with_config_overrides/.tfsec/config.yml"
 	out, err, exit := runWithArgs("./testdata/with_config_overrides", "--config-file-url", configFileUrl)
 	assert.Equal(t, "", err)
 	result := parseLovely(t, out)
@@ -482,7 +482,7 @@ func Test_Flag_ConfigFileUrl(t *testing.T) {
 }
 
 func Test_Flag_ConfigFileUrlNotFound(t *testing.T) {
-	configFileUrl := "https://raw.githubusercontent.com/aquasecurity/tfsec/master/_examples/with_config_overrides/.tfsec/config_not_found.yml"
+	configFileUrl := "https://raw.githubusercontent.com/khulnasoft/tfsec/master/_examples/with_config_overrides/.tfsec/config_not_found.yml"
 	out, err, exit := runWithArgs("./testdata/with_config_overrides", "--config-file-url", configFileUrl)
 	assert.Equal(t, "", err)
 	result := parseLovely(t, out)
@@ -492,7 +492,7 @@ func Test_Flag_ConfigFileUrlNotFound(t *testing.T) {
 }
 
 func Test_Flag_CustomCheckUrlNotFound(t *testing.T) {
-	customCheckUrl := "https://raw.githubusercontent.com/aquasecurity/tfsec/master/_examples/custom/.tfsec/custom_tfchecks_not_found.yaml"
+	customCheckUrl := "https://raw.githubusercontent.com/khulnasoft/tfsec/master/_examples/custom/.tfsec/custom_tfchecks_not_found.yaml"
 	out, err, exit := runWithArgs("./testdata/custom_url", "--custom-check-url", customCheckUrl)
 	assert.Equal(t, "", err)
 	result := parseLovely(t, out)
@@ -502,7 +502,7 @@ func Test_Flag_CustomCheckUrlNotFound(t *testing.T) {
 }
 
 func Test_Flag_CustomCheckUrl(t *testing.T) {
-	customCheckUrl := "https://raw.githubusercontent.com/aquasecurity/tfsec/master/_examples/custom/.tfsec/custom_tfchecks.yaml"
+	customCheckUrl := "https://raw.githubusercontent.com/khulnasoft/tfsec/master/_examples/custom/.tfsec/custom_tfchecks.yaml"
 	out, err, exit := runWithArgs("./testdata/custom_url", "--custom-check-url", customCheckUrl)
 	assert.Equal(t, "", err)
 	result := parseLovely(t, out)

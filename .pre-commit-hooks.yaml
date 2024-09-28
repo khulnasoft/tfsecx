@@ -9,7 +9,7 @@
   name: TFSec Docker
   description: TFsec is a tool to statically analyze Terraform templates to spot potential security issues, uses projects official docker image.
   language: docker_image
-  entry: aquasec/tfsec-alpine
+  entry: khulnasoft/tfsec-alpine
   pass_filenames: false
 
 - id: tfsec-system
