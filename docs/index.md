@@ -19,7 +19,7 @@ Going forward we want to encourage the tfsec community to transition over to Tri
 
 1. Access to more languages and features in the same tool.
 2. Access to more integrations with tools and services through the rich ecosystem around Trivy.
-3. Commercially supported by Aqua as well as by a the passionate Trivy community.
+3. Commercially supported by KhulnaSoft as well as by a the passionate Trivy community.
    tfsec will continue to remain available for the time being, although our engineering attention will be directed at Trivy going forward.
 
 ## tfsec to Trivy migration guide
@@ -42,7 +42,7 @@ Designed to run locally and in your CI pipelines, developer-friendly output and 
   <figcaption>Demo: Misconfiguration Detection</figcaption>
 </figure>
 
-`tfsec` is an [Aqua Security][khulnasoft] open source project.  
+`tfsec` is an [KhulnaSoft Security][khulnasoft] open source project.  
 Learn about our open source work and portfolio [here][oss].  
 Contact us about any matter by opening a GitHub Discussion [here][discussions]
 
