@@ -10,8 +10,8 @@ import (
 	"strings"
 
 	"github.com/aquasecurity/defsec/pkg/scanners/options"
-	"github.com/khulnasoft/tfsec/internal/pkg/custom"
 	"github.com/google/uuid"
+	"github.com/khulnasoft/tfsec/internal/pkg/custom"
 
 	"github.com/aquasecurity/defsec/pkg/scan"
 

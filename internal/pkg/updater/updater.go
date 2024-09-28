@@ -6,9 +6,9 @@ import (
 	"net/http"
 	"runtime"
 
-	"github.com/khulnasoft/tfsec/version"
 	semver "github.com/hashicorp/go-version"
 	"github.com/inconshreveable/go-update"
+	"github.com/khulnasoft/tfsec/version"
 )
 
 type githubRelease struct {
