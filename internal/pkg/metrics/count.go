@@ -47,8 +47,19 @@ func (c *counter) Value() string {
 	return fmt.Sprintf("%d", c.count)
 }
 
+// Increment safely handles both positive and negative increments to prevent integer overflow
 func (c *counter) Increment(delta int) {
 	c.Lock()
 	defer c.Unlock()
-	c.count += uint64(delta)
+
+	// Ensure delta is non-negative before casting to uint64
+	if delta < 0 {
+		if uint64(-delta) > c.count {
+			c.count = 0 // Prevent underflow
+		} else {
+			c.count -= uint64(-delta)
+		}
+	} else {
+		c.count += uint64(delta)
+	}
 }

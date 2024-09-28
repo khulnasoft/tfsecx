@@ -1,36 +1,32 @@
 linters:
   disable-all: true
   enable:
-    - deadcode
-    - errcheck
-    - gosimple
-    - govet
-    - ineffassign
-    - staticcheck
-    - structcheck
-    - unused
-    - varcheck
-    - bodyclose
-    - contextcheck
-    - cyclop
-    - durationcheck
-    - errname
-    - errorlint
-    - exportloopref
-    - goimports
-    - gosec
-    - gocritic
-    - copyloopvar
+    - errcheck # Ensures errors are handled
+    - gosimple # Simplifies Go code
+    - govet # Reports potential issues, including alignment
+    - ineffassign # Detects unused assignments
+    - staticcheck # Replaces gosimple, unused, etc., with enhanced checks
+    - unused # Detects unused variables/functions (includes structcheck/varcheck, replaces deadcode)
+    - bodyclose # Ensures HTTP response bodies are closed
+    - contextcheck # Ensures correct context usage
+    - cyclop # Complexity linter
+    - durationcheck # Ensures correct time duration usage
+    - errname # Consistent error variable naming
+    - errorlint # Safer error type assertions
+    - goimports # Ensures imports are formatted correctly
+    - gosec # Security linter
+    - gocritic # Code quality linter
 
 linters-settings:
   cyclop:
-    max-complexity: 15
+    max-complexity: 15 # Set desired max complexity
+
   gocritic:
     disabled-checks:
-      - singleCaseSwitch
+      - singleCaseSwitch # Disable specific check
 
 issues:
   exclude-rules:
     - path: "."
       linters:
-        - typecheck
+        - typecheck # Exclude typecheck from all paths

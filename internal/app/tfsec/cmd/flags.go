@@ -9,20 +9,20 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/aquasecurity/defsec/pkg/scanners/options"
+	"github.com/khulnasoft-lab/defsec/pkg/scanners/options"
 	"github.com/google/uuid"
 	"github.com/khulnasoft/tfsec/internal/pkg/custom"
 
-	"github.com/aquasecurity/defsec/pkg/scan"
+	"github.com/khulnasoft-lab/defsec/pkg/scan"
 
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
 	"github.com/spf13/viper"
 
-	scanner "github.com/aquasecurity/defsec/pkg/scanners/terraform"
-	"github.com/aquasecurity/defsec/pkg/severity"
+	scanner "github.com/khulnasoft-lab/defsec/pkg/scanners/terraform"
+	"github.com/khulnasoft-lab/defsec/pkg/severity"
 
-	"github.com/aquasecurity/defsec/pkg/state"
+	"github.com/khulnasoft-lab/defsec/pkg/state"
 	"github.com/khulnasoft/tfsec/internal/pkg/config"
 	"github.com/khulnasoft/tfsec/internal/pkg/legacy"
 )
@@ -355,7 +355,7 @@ func remoteConfigDownloaded() bool {
 		return false
 	}
 
-	if err := os.WriteFile(tempFile, configContent, os.ModePerm); err != nil {
+	if err := os.WriteFile(tempFile, configContent, 0600); err != nil {
 		return false
 	}
 	configFile = tempFile
@@ -381,7 +381,7 @@ func remoteCustomCheckDownloaded() bool {
 		return false
 	}
 
-	if err := os.WriteFile(tempFile, customCheckContent, os.ModePerm); err != nil {
+	if err := os.WriteFile(tempFile, configContent, 0600); err != nil {
 		return false
 	}
 	customCheckDir = customTempDir

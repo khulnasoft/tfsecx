@@ -7,12 +7,12 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/aquasecurity/defsec/pkg/scan"
-	scanner "github.com/aquasecurity/defsec/pkg/scanners/terraform"
-	"github.com/aquasecurity/defsec/pkg/scanners/terraform/parser"
+	"github.com/khulnasoft-lab/defsec/pkg/scan"
+	scanner "github.com/khulnasoft-lab/defsec/pkg/scanners/terraform"
+	"github.com/khulnasoft-lab/defsec/pkg/scanners/terraform/parser"
 	"github.com/liamg/memoryfs"
 
-	"github.com/aquasecurity/defsec/pkg/terraform"
+	"github.com/khulnasoft-lab/defsec/pkg/terraform"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -401,7 +401,8 @@ resource "aws_ami" "example" {
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
 			block := parseFromSource(t, test.source)[0].GetBlocks()[0]
-			result := evalMatchSpec(block, &test.matchSpec, NewEmptyCustomContext())
+			matchSpec := test.matchSpec
+			result := evalMatchSpec(block, &matchSpec, NewEmptyCustomContext())
 			assert.Equal(t, test.expected, result, "Not match functions evaluating incorrectly.")
 		})
 	}
@@ -451,7 +452,8 @@ resource "aws_ami" "testing" {
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
 			block := parseFromSource(t, test.source)[0].GetBlocks()[0]
-			result := evalMatchSpec(block, &test.matchSpec, NewEmptyCustomContext())
+			matchSpec := test.matchSpec
+			result := evalMatchSpec(block, &matchSpec, NewEmptyCustomContext())
 			assert.Equal(t, test.expected, result, "precondition functions evaluating incorrectly.")
 		})
 	}
@@ -497,7 +499,8 @@ resource "aws_s3_bucket" "test-bucket" {
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
 			block := parseFromSource(t, test.source)[0].GetBlocks()[0]
-			result := evalMatchSpec(block, &test.matchSpec, NewEmptyCustomContext())
+			matchSpec := test.matchSpec
+			result := evalMatchSpec(block, &matchSpec, NewEmptyCustomContext())
 			assert.Equal(t, test.expected, result, "processing variable assignments incorrectly.")
 		})
 	}
@@ -880,7 +883,8 @@ resource "aws_instance" "foo" {
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
 			block := parseFromSource(t, test.source)[0].GetBlocks()[0]
-			result := evalMatchSpec(block, &test.matchSpec, NewEmptyCustomContext())
+			matchSpec := test.matchSpec
+			result := evalMatchSpec(block, &matchSpec, NewEmptyCustomContext())
 			assert.Equal(t, result, test.expected, "subMatch evaluation function for attributes behaving incorrectly.")
 		})
 	}
@@ -966,7 +970,8 @@ func TestSubMatchOnes(t *testing.T) {
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
 			block := parseFromSource(t, test.source)[0].GetBlocks()[0]
-			result := evalMatchSpec(block, &test.matchSpec, NewEmptyCustomContext())
+			matchSpec := test.matchSpec
+			result := evalMatchSpec(block, &matchSpec, NewEmptyCustomContext())
 			assert.Equal(t, result, test.expected, "`subMatchOne` handling function evaluating incorrectly.")
 		})
 	}

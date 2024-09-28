@@ -145,7 +145,7 @@ func load(t *testing.T, filename, content string) *config.Config {
 
 	configFileName := fmt.Sprintf("%s/%s", dir, filename)
 
-	err = os.WriteFile(configFileName, []byte(content), os.ModePerm)
+	err = os.WriteFile(configFileName, []byte(content), 0600)
 	require.NoError(t, err)
 
 	c, err := config.LoadConfig(configFileName)
