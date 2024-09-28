@@ -27,4 +27,4 @@ jobs:
         with:
           version: v1.48
           skip-cache: true
-          args: --timeout 10m --verbose
+          args: --fix --timeout 10m --verbose
